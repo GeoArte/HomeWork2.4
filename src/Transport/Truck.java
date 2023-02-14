@@ -5,14 +5,14 @@ import Driver.TruckDriver;
 public class Truck<T extends TruckDriver> extends Transport implements Competing
 {
     private String transmission;
-    private final String bodyType;
+    private final BodyTypeTruck bodyType;
     private int registrationNumber;
     private final int numberOfSeats;
     private boolean winterTires;
 
-    public Truck(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
+    public Truck(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypeTruck bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.Truck);
         if (transmission == null || transmission.equals(""))
         {
             this.transmission = defaulta;
@@ -21,14 +21,7 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
         {
             this.transmission = transmission;
         }
-        if (bodyType == null || bodyType.equals(""))
-        {
-            this.bodyType = defaulta;
-        }
-        else
-        {
-            this.bodyType = bodyType;
-        }
+        this.bodyType = bodyType;
         if (registrationNumber > 0)
         {
             this.registrationNumber = registrationNumber;
@@ -58,7 +51,7 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
         return registrationNumber;
     }
 
-    public String getBodyType()
+    public BodyTypeTruck getBodyType()
     {
         return bodyType;
     }
@@ -78,6 +71,8 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
             return "Летние шины";
         }
     }
+    @Override
+    public Type getType(){return this.getType();}
     public void setTransmission(String transmission)
     {
         this.transmission = transmission;
@@ -117,5 +112,18 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
     public void pitStop()
     {
         System.out.println("Остановка на пит стоп");
+    }
+
+    @Override
+    public String printType()
+    {
+        if (this.getType().equals(null))
+        {
+            return "Данных по транспортному средству недостаточно";
+        }
+        else
+        {
+            return this.getType().toString();
+        }
     }
 }

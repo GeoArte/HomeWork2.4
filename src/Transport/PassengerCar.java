@@ -6,14 +6,14 @@ import Driver.PassengerCarDriver;
 public class PassengerCar<T extends PassengerCarDriver> extends Transport implements Competing
 {
     private String transmission;
-    private final String bodyType;
+    private final BodyTypePassengerCar bodyType;
     private int registrationNumber;
     private final int numberOfSeats;
     private boolean winterTires;
 
-    public PassengerCar(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
+    public PassengerCar(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypePassengerCar bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.PassengerCar);
         if (engineVolume > 0)
         if (transmission == null || transmission.equals(""))
         {
@@ -23,14 +23,7 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
         {
             this.transmission = transmission;
         }
-        if (bodyType == null || bodyType.equals(""))
-        {
-            this.bodyType = defaulta;
-        }
-        else
-        {
-            this.bodyType = bodyType;
-        }
+        this.bodyType = bodyType;
         if (registrationNumber > 0)
         {
             this.registrationNumber = registrationNumber;
@@ -59,7 +52,7 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
         return registrationNumber;
     }
 
-    public String getBodyType()
+    public BodyTypePassengerCar getBodyType()
     {
         return bodyType;
     }
@@ -79,6 +72,8 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
             return "Летние шины";
         }
     }
+    @Override
+    public Type getType(){return this.getType();}
     public void setTransmission(String transmission)
     {
         this.transmission = transmission;
@@ -118,5 +113,18 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
     public void pitStop()
     {
         System.out.println("Остановка на пит стоп");
+    }
+
+    @Override
+    public String printType()
+    {
+        if (this.getType().equals(null))
+        {
+            return "Данных по транспортному средству недостаточно";
+        }
+        else
+        {
+            return this.getType().toString();
+        }
     }
 }

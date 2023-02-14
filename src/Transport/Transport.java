@@ -14,8 +14,9 @@ public abstract class Transport
     private static boolean movement;
     private static Driver driver;
     String defaulta = "Default";
+    private final Type type;
 
-    public Transport(String brand, String model, int year, String country, String color, int speed, double engineVolume, Driver driver)
+    public Transport(String brand, String model, int year, String country, String color, int speed, double engineVolume, Driver driver, Type type)
     {
         if (brand.equals("") || brand.equals(null))
         {
@@ -75,6 +76,7 @@ public abstract class Transport
         }
         this.movement = false;
         this.driver = driver;
+        this.type = type;
     }
 
     public int getMaxSpeed()
@@ -122,6 +124,7 @@ public abstract class Transport
             this.color = color;
         }
     }
+    public Type getType(){return type;}
 
     public void setMaxSpeed(int speed)
     {
@@ -156,4 +159,6 @@ public abstract class Transport
     {
         return this.brand + " " + this.model;
     }
+
+    abstract String printType();
 }
