@@ -8,7 +8,7 @@ public class Bus<T extends BusDriver> extends Transport implements Competing
 
     public Bus(String brand, String model, int year, String country, String color, int speed, double engineVolume, T driver, BodyTypeBus bodyType)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.Bus);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.BUS);
         this.bodyType = bodyType;
     }
     @Override

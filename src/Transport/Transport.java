@@ -161,4 +161,19 @@ public abstract class Transport
     }
 
     abstract String printType();
+
+    public void passDiagnostics()
+    {
+        if(this.type == Type.BUS)
+        {
+            try
+            {
+                throw new TransportTypeException("автобусам проходить диагностику не нужно");
+            }
+            catch (TransportTypeException e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

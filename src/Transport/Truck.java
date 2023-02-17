@@ -12,7 +12,7 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
 
     public Truck(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypeTruck bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.Truck);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.TRUCK);
         if (transmission == null || transmission.equals(""))
         {
             this.transmission = defaulta;
@@ -125,5 +125,9 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
         {
             return this.getType().toString();
         }
+    }
+    @Override
+    public void passDiagnostics()
+    {
     }
 }

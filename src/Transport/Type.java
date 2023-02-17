@@ -2,9 +2,9 @@ package Transport;
 
 public enum Type
 {
-    PassengerCar("Легковой автомобиль"),
-    Truck("Грузовой автомобиль"),
-    Bus("Автобус");
+    PASSENGERCAR("Легковой автомобиль"),
+    TRUCK("Грузовой автомобиль"),
+    BUS("Автобус");
 
     private final String type;
 

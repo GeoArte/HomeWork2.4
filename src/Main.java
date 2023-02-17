@@ -20,5 +20,8 @@ public class Main {
         PassengerCar pC = new PassengerCar("", "", 1500, "", "Black", 1, -1.0, "", BodyTypePassengerCar.Crossover, 3, 3, false, sveta);
         PassengerCar pD = new PassengerCar("Ferrari", "", 2000, "Italia", "Red", 200, 5.0, "", BodyTypePassengerCar.Van, 4, 1, false, sveta);
         System.out.println("Водитель " + pA.getDriver().toString() + " управляет автомобилем " + pA.toString() + " и будет участвовать в заезде");
+        tA.passDiagnostics();
+        pA.passDiagnostics();
+        bA.passDiagnostics();
     }
 }

@@ -13,7 +13,7 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
 
     public PassengerCar(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypePassengerCar bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.PassengerCar);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.PASSENGERCAR);
         if (engineVolume > 0)
         if (transmission == null || transmission.equals(""))
         {
@@ -126,5 +126,9 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
         {
             return this.getType().toString();
         }
+    }
+    @Override
+    public void passDiagnostics()
+    {
     }
 }
