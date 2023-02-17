@@ -43,4 +43,11 @@ public class Bus<T extends BusDriver> extends Transport implements Competing
             return this.getType().toString();
         }
     }
+    @Override
+    public void passDiagnostics() throws TransportTypeException {
+        if(this.type == Type.BUS)
+        {
+                throw new TransportTypeException("автобусам проходить диагностику не нужно");
+        }
+    }
 }
