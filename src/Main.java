@@ -22,6 +22,10 @@ public class Main {
         System.out.println("Водитель " + pA.getDriver().toString() + " управляет автомобилем " + pA.toString() + " и будет участвовать в заезде");
         tA.passDiagnostics();
         pA.passDiagnostics();
-        bA.passDiagnostics();
+        try {
+            bA.passDiagnostics();
+        } catch (TransportTypeException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -14,7 +14,7 @@ public abstract class Transport
     private static boolean movement;
     private static Driver driver;
     String defaulta = "Default";
-    private final Type type;
+    protected final Type type;
 
     public Transport(String brand, String model, int year, String country, String color, int speed, double engineVolume, Driver driver, Type type)
     {
@@ -162,18 +162,5 @@ public abstract class Transport
 
     abstract String printType();
 
-    public void passDiagnostics()
-    {
-        if(this.type == Type.BUS)
-        {
-            try
-            {
-                throw new TransportTypeException("автобусам проходить диагностику не нужно");
-            }
-            catch (TransportTypeException e)
-            {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+   abstract public void passDiagnostics() throws TransportTypeException;
 }
