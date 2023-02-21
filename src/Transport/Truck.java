@@ -1,6 +1,7 @@
 package Transport;
 
-import Driver.TruckDriver;
+import People.Driver.TruckDriver;
+import People.Mechanic;
 
 public class Truck<T extends TruckDriver> extends Transport implements Competing
 {
@@ -10,9 +11,9 @@ public class Truck<T extends TruckDriver> extends Transport implements Competing
     private final int numberOfSeats;
     private boolean winterTires;
 
-    public Truck(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypeTruck bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
+    public Truck(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypeTruck bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver, Mechanic mechanic)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.TRUCK);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.TRUCK, mechanic);
         if (transmission == null || transmission.equals(""))
         {
             this.transmission = defaulta;

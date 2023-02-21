@@ -1,4 +1,4 @@
-package Driver;
+package People.Driver;
 
 public class TruckDriver extends Driver
 {

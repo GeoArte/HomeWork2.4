@@ -1,14 +1,15 @@
 package Transport;
 
-import Driver.BusDriver;
+import People.Driver.BusDriver;
+import People.Mechanic;
 
 public class Bus<T extends BusDriver> extends Transport implements Competing
 {
     private final BodyTypeBus bodyType;
 
-    public Bus(String brand, String model, int year, String country, String color, int speed, double engineVolume, T driver, BodyTypeBus bodyType)
+    public Bus(String brand, String model, int year, String country, String color, int speed, double engineVolume, T driver, BodyTypeBus bodyType, Mechanic mechanic)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.BUS);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.BUS, mechanic);
         this.bodyType = bodyType;
     }
     @Override

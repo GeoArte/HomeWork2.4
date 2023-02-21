@@ -1,6 +1,10 @@
 package Transport;
 
-import Driver.Driver;
+import People.Driver.Driver;
+import People.Mechanic;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public abstract class Transport
 {
@@ -13,10 +17,12 @@ public abstract class Transport
     private static double engineVolume;
     private static boolean movement;
     private static Driver driver;
-    String defaulta = "Default";
     protected final Type type;
+    private List<Mechanic> listMechanic = new LinkedList<>();
+    private Mechanic defaultaMechanic = new Mechanic(null, null);
+    protected String defaulta = "Default";
 
-    public Transport(String brand, String model, int year, String country, String color, int speed, double engineVolume, Driver driver, Type type)
+    public Transport(String brand, String model, int year, String country, String color, int speed, double engineVolume, Driver driver, Type type, Mechanic mechanic)
     {
         if (brand.equals("") || brand.equals(null))
         {
@@ -77,6 +83,7 @@ public abstract class Transport
         this.movement = false;
         this.driver = driver;
         this.type = type;
+        listMechanic.add(mechanic);
     }
 
     public int getMaxSpeed()
@@ -160,7 +167,51 @@ public abstract class Transport
         return this.brand + " " + this.model;
     }
 
+    // информация о типе автомобиля
     abstract String printType();
 
+    // провести диагностику
    abstract public void passDiagnostics() throws TransportTypeException;
+
+    // узнать кто механники
+    public List<Mechanic> WhoMechanics()
+    {
+        return listMechanic;
+    }
+
+    //узнать кто водитель
+    public String WhoDriver()
+    {
+        return this.driver.getName();
+    }
+
+    // узнать кто механники(Имена)
+    public void WhoMechanicsName()
+    {
+        for (int i = 0; i < this.listMechanic.size(); i++)
+        {
+            System.out.println(this.listMechanic.get(i).getName() + " из компании " + this.listMechanic.get(i).getCompany());
+        }
+    }
+
+    //Добавить механника к машине
+    public void addMechanic(Mechanic mechanic)
+    {
+        int b = 0;
+        for (int i = 0; i < this.listMechanic.size(); i++)
+        {
+            if (mechanic.equals(listMechanic.get(i)))
+            {
+                b++;
+            }
+        }
+        if (b == 0)
+        {
+            listMechanic.add(mechanic);
+        }
+        else
+        {
+            System.out.println("Этот механик уже обслуживает эту машину");
+        }
+    }
 }

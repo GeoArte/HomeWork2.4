@@ -1,7 +1,7 @@
 package Transport;
 
-import Driver.BusDriver;
-import Driver.PassengerCarDriver;
+import People.Driver.PassengerCarDriver;
+import People.Mechanic;
 
 public class PassengerCar<T extends PassengerCarDriver> extends Transport implements Competing
 {
@@ -11,9 +11,9 @@ public class PassengerCar<T extends PassengerCarDriver> extends Transport implem
     private final int numberOfSeats;
     private boolean winterTires;
 
-    public PassengerCar(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypePassengerCar bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver)
+    public PassengerCar(String brand, String model, int year, String country, String color, int speed, double engineVolume, String transmission, BodyTypePassengerCar bodyType, int registrationNumber, int numberOfSeats, boolean winterTires, T driver, Mechanic mechanic)
     {
-        super(brand, model, year, country, color, speed, engineVolume, driver, Type.PASSENGERCAR);
+        super(brand, model, year, country, color, speed, engineVolume, driver, Type.PASSENGERCAR, mechanic);
         if (engineVolume > 0)
         if (transmission == null || transmission.equals(""))
         {
