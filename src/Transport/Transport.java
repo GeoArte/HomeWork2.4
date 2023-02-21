@@ -174,19 +174,19 @@ public abstract class Transport
    abstract public void passDiagnostics() throws TransportTypeException;
 
     // узнать кто механники
-    public List<Mechanic> WhoMechanics()
+    public List<Mechanic> whoMechanics()
     {
         return listMechanic;
     }
 
     //узнать кто водитель
-    public String WhoDriver()
+    public String whoDriver()
     {
         return this.driver.getName();
     }
 
     // узнать кто механники(Имена)
-    public void WhoMechanicsName()
+    public void whoMechanicsName()
     {
         for (int i = 0; i < this.listMechanic.size(); i++)
         {
@@ -200,7 +200,7 @@ public abstract class Transport
         int b = 0;
         for (int i = 0; i < this.listMechanic.size(); i++)
         {
-            if (mechanic.equals(listMechanic.get(i)))
+            if (mechanic.contains(listMechanic.get(i)))
             {
                 b++;
             }

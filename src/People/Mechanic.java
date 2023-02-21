@@ -41,9 +41,9 @@ public class Mechanic {
     public void performMaintenance(Transport a) throws TransportTypeException
     {
         int b = 0;
-        for (int i = 0; i < a.WhoMechanics().size(); i++)
+        for (int i = 0; i < a.whoMechanics().size(); i++)
         {
-            if (this.equals(a.WhoMechanics().get(i)))
+            if (this.equals(a.whoMechanics().get(i)))
             {
                 b++;
             }
@@ -61,9 +61,9 @@ public class Mechanic {
     public void fixTheCar(Transport a)
     {
         int b = 0;
-        for (int i = 0; i < a.WhoMechanics().size(); i++)
+        for (int i = 0; i < a.whoMechanics().size(); i++)
         {
-            if (this.equals(a.WhoMechanics().get(i)))
+            if (this.equals(a.whoMechanics().get(i)))
             {
                 b++;
             }
@@ -76,5 +76,10 @@ public class Mechanic {
         {
             System.out.println("Этот механник не может обслужить эту машину");
         }
+    }
+
+    public boolean contains(Mechanic mechanic)
+    {
+        return this.contains(mechanic);
     }
 }

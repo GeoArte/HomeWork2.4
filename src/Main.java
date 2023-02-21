@@ -42,8 +42,8 @@ public class Main {
         listCar.add(pB);
         listCar.add(pC);
         listCar.add(pD);
-        tA.WhoMechanicsName();
-        tB.WhoMechanicsName();
+        tA.whoMechanicsName();
+        tB.whoMechanicsName();
         ServiceStation station = new ServiceStation();
         station.addTransportInServiceStationQueue(tA);
         station.addTransportInServiceStationQueue(bC);
