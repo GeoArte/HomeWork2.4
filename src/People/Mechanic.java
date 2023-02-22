@@ -77,9 +77,4 @@ public class Mechanic {
             System.out.println("Этот механник не может обслужить эту машину");
         }
     }
-
-    public boolean contains(Mechanic mechanic)
-    {
-        return this.contains(mechanic);
-    }
 }

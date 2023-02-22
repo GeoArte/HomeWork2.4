@@ -197,21 +197,13 @@ public abstract class Transport
     //Добавить механника к машине
     public void addMechanic(Mechanic mechanic)
     {
-        int b = 0;
-        for (int i = 0; i < this.listMechanic.size(); i++)
+        if(listMechanic.contains(mechanic))
         {
-            if (mechanic.contains(listMechanic.get(i)))
-            {
-                b++;
-            }
-        }
-        if (b == 0)
-        {
-            listMechanic.add(mechanic);
+            System.out.println("Этот механик уже обслуживает эту машину");
         }
         else
         {
-            System.out.println("Этот механик уже обслуживает эту машину");
+            listMechanic.add(mechanic);
         }
     }
 }
