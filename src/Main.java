@@ -7,16 +7,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args)
     {
-        DriversList drivers = new DriversList();
+        DriverList driversList = new DriverList();
         TruckDriver semen = new TruckDriver("Станов Семён Семёнович", "C", 3);
         BusDriver ivan = new BusDriver("Иванов Иван Михайлович", "D", 2);
         PassengerCarDriver sveta = new PassengerCarDriver("Дубова Света Владимировна", "B", 6);
-        drivers.addDriver(semen);
-        drivers.addDriver(semen);
-        drivers.addDriver(ivan);
-        drivers.addDriver(sveta);
-        drivers.addDriver(sveta);
-        drivers.printNameDrivers();
+        driversList.addDriver(semen);
+        driversList.addDriver(semen);
+        driversList.addDriver(ivan);
+        driversList.addDriver(sveta);
+        driversList.addDriver(sveta);
+        driversList.printNameDrivers();
         Mechanic vasiliy = new Mechanic(null, null);
         Mechanic petr = new Mechanic("Попугаев Пётр Константинов", null);
         Truck tA = new Truck("String brand", "String model", 2000, "String country", "String color", 200, 2.4, "String transmission", BodyTypeTruck.N1,1, 5, true, semen, vasiliy);

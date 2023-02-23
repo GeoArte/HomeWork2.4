@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DriversList
+public class DriverList
 {
     Set drivers= new HashSet<Driver>();
 
-    public DriversList ()
+    public DriverList ()
     {
     }
 
@@ -28,6 +28,6 @@ public class DriversList
     }
     public void printNameDrivers()
     {
-            System.out.println(Arrays.toString(drivers.toArray()));
+        System.out.println(Arrays.toString(drivers.toArray()));
     }
 }
