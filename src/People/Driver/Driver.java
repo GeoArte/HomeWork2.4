@@ -1,6 +1,7 @@
 package People.Driver;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public abstract class Driver
@@ -65,5 +66,24 @@ public abstract class Driver
     public String toString()
     {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) {
+            return true;
+        }
+        if(obj == null || getClass() != obj.getClass())
+        {
+            return false;
+        }
+        Driver driver = (Driver) obj;
+        return experience == driver.experience && Objects.equals(name, driver.name) && Objects.equals(driveLicense, driver.driveLicense);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, driveLicense, experience);
     }
 }
