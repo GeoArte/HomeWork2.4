@@ -7,6 +7,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args)
     {
+        // Создание HashMap
+        Map<Transport, List<Mechanic>> CarMechanic = new HashMap<>();
         DriverList driversList = new DriverList();
         TruckDriver semen = new TruckDriver("Станов Семён Семёнович", "C", 3);
         BusDriver ivan = new BusDriver("Иванов Иван Михайлович", "D", 2);
@@ -16,6 +18,7 @@ public class Main {
         driversList.addDriver(ivan);
         driversList.addDriver(sveta);
         driversList.addDriver(sveta);
+        // Вывод имён всех водителей
         driversList.printNameDrivers();
         Mechanic vasiliy = new Mechanic(null, null);
         Mechanic petr = new Mechanic("Попугаев Пётр Константинов", null);
@@ -52,6 +55,21 @@ public class Main {
         ServiceStation station = new ServiceStation();
         station.addTransportInServiceStationQueue(tA);
         station.addTransportInServiceStationQueue(bC);
+        // Добавление механиков в список
+        CarMechanic.put(tB, tB.whoMechanics());
+        CarMechanic.put(tA, tA.whoMechanics());
+        CarMechanic.put(bC, bC.whoMechanics());
+        CarMechanic.put(pD, pD.whoMechanics());
+        // Вывод списка
+        for (Map.Entry<Transport, List<Mechanic>> CarMechanics : CarMechanic.entrySet())
+        {
+            System.out.println("Машина: " + CarMechanics.getKey().getModel());
+            System.out.print("Механики: ");
+            for (int i = 0; i < CarMechanics.getValue().size(); i++)
+            {
+                System.out.println(CarMechanics.getValue().get(i).getName() + " ");
+            }
+        }
         station.inspectionCar();
         station.inspectionCar();
         try {
