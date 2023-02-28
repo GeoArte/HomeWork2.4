@@ -1,13 +1,10 @@
 package People.Driver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class DriverList
 {
-    Set drivers= new HashSet<Driver>();
+    HashSet drivers= new HashSet<Driver>();
 
     public DriverList ()
     {
@@ -28,6 +25,11 @@ public class DriverList
     }
     public void printNameDrivers()
     {
-        System.out.println(Arrays.toString(drivers.toArray()));
+        System.out.println("Водители: ");
+        Iterator<Driver> iterDriver = drivers.iterator();
+        while (iterDriver.hasNext())
+        {
+            System.out.println(iterDriver.next().getName());
+        }
     }
 }
